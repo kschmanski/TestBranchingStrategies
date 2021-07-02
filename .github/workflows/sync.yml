@@ -21,4 +21,6 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "master"
-          TO_BRANCH: "test, dev"
+          TO_BRANCH:
+            - "test"
+            - "dev"
