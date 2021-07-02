@@ -16,14 +16,14 @@ jobs:
         with:
           node-version: 12
       - name: Opening pull request
-        id: pull
+        id: pull_test
         uses: tretuna/sync-branches@1.2.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           FROM_BRANCH: "master"
           TO_BRANCH: "test"
       - name: Opening pull request
-        id: pull
+        id: pull_dev
         uses: tretuna/sync-branches@1.2.0
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
