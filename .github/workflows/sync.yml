@@ -1,4 +1,4 @@
-name: Syncing
+name: Syncing Branches by opening PRs
 on:
   push:
     branches:
@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Syncing branches
     steps:
+      # test comment
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up Node
