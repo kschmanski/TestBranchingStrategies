@@ -18,11 +18,6 @@ jobs:
       run: echo "tag created again again" > test-auto.txt
     - name: Commit and Push
       run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        # use account 'github-actions[bot]' to set the git config
-
-
         git checkout -b my-branch
         git add -A
         git commit -m "commit message"
@@ -34,4 +29,3 @@ jobs:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         FROM_BRANCH: "my-branch"
         TO_BRANCH: "master"
-        OWNER: "github-actions"
