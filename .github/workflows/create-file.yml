@@ -7,9 +7,9 @@ on:
 jobs:
   create-file:
     runs-on: ubuntu-latest
-    name: Creating file
+
     steps:
-      - uses: "finnp/create-file-action@master"
+      - uses: finnp/create-file-action@master
             env:
               FILE_NAME: "dir/fileName.txt"
               FILE_DATA: "file content"
