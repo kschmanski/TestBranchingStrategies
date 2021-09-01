@@ -1,5 +1,7 @@
-name: Create Sophia Version File Manual
+name: Create Sophia Version File
 on:
+  release:
+    types: [created]
   workflow_dispatch:
 
 jobs:
@@ -8,14 +10,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
     - name: Create/update text file
-      run: echo "var=z" > test.txt
+      run: echo "This is my test" > test-auto.txt
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         # use account 'github-actions[bot]' to set the git config
 
+        git checkout -b my-branch
         git add -A
         git commit -m "commit message"
-        git push
+        git push origin my-branch
+    - name: Opening pull request
+      id: pull_dev
+      uses: tretuna/sync-branches@1.2.0
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        FROM_BRANCH: "my-branch"
+        TO_BRANCH: "master"
