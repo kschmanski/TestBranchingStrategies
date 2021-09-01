@@ -20,4 +20,5 @@ jobs:
 
         git add -A
         git commit -m "commit message"
-        git push
+        git fetch origin master
+        git push origin HEAD:master
