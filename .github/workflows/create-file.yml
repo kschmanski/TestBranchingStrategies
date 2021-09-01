@@ -28,3 +28,5 @@ jobs:
         git push origin my-branch
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
+      with:
+        branch: my-branch
