@@ -2,7 +2,7 @@ name: Create Sophia Version File
 on:
   release:
     types: [created]
-  workflow-dispatch:
+  workflow_dispatch:
 
 jobs:
   create-file:
