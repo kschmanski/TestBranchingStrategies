@@ -1,0 +1,43 @@
+name: Create Sophia Version File
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: "call action"
+      id: last_release
+      uses: InsonusK/get-latest-release@v1.0.1
+      with:
+        myToken: ${{ github.token }}
+        view_top: 1
+    - name: "Print result"
+      run: |
+        echo "id: ${{ steps.last_release.outputs.id }}"
+        echo "name: ${{ steps.last_release.outputs.name }}"
+        echo "tag_name: ${{ steps.last_release.outputs.tag_name }}"
+        echo "created_at: ${{ steps.last_release.outputs.created_atd }}"
+        echo "draft: ${{ steps.last_release.outputs.draft }}"
+        echo "prerelease: ${{ steps.last_release.outputs.prerelease }}"
+
+    - name: Create/update text file
+      run: echo ${{ steps.last_release.outputs.tag_name }} > sophia-release.txt
+    - name: Commit and Push
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        # use account 'github-actions[bot]' to set the git config
+        git checkout -b example-patches
+        git add -A
+        git commit -m "commit message"
+        git push origin example-patches
+    - uses: devops-infra/action-pull-request@v0.4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        source_branch: example-patches
+        target_branch: master
