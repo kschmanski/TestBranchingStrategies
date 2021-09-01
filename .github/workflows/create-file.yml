@@ -1,9 +1,11 @@
 name: Create Sophia Version File
 on:
-  release
+  release:
+    types: [ created ]
+
 
 jobs:
-  sync-branches:
+  create-file:
     runs-on: ubuntu-latest
     name: Creating file
     steps:
