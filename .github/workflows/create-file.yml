@@ -10,6 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
     - name: Create/update text file
       run: echo "tag created again again" > test-auto.txt
     - name: Commit and Push
