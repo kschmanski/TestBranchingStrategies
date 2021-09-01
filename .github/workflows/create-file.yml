@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 12
     - name: Create/update text file
-      run: echo "This is my test" > test-auto.txt
+      run: echo "This is my test" > test-auto-new.txt
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
