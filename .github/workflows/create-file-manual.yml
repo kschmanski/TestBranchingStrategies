@@ -1,4 +1,4 @@
-name: Create Sophia Version File
+name: Create Sophia Version File Manual
 on:
   workflow_dispatch:
 
