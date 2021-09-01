@@ -1,0 +1,15 @@
+name: Create Sophia Version File
+on:
+  release
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    name: Creating file
+    steps:
+      - name: MyStep
+        id: mystep
+        uses: "finnp/create-file-action@master"
+                env:
+                  FILE_NAME: "dir/fileName.txt"
+                  FILE_DATA: "file content"
