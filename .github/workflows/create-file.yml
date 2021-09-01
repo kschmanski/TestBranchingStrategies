@@ -22,7 +22,7 @@ jobs:
         git add -A
         git commit -m "commit message"
         git push origin example-patches
-      uses: devops-infra/action-pull-request@v0.4
+    - uses: devops-infra/action-pull-request@v0.4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         source_branch: example-patches
