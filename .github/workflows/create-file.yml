@@ -12,6 +12,6 @@ jobs:
       - name: MyStep
         id: mystep
         uses: "finnp/create-file-action@master"
-                env:
-                  FILE_NAME: "dir/fileName.txt"
-                  FILE_DATA: "file content"
+            env:
+              FILE_NAME: "dir/fileName.txt"
+              FILE_DATA: "file content"
