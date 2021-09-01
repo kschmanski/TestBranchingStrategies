@@ -1,5 +1,7 @@
 name: Create Sophia Version File Manual
 on:
+  release:
+    types: [created]
   workflow_dispatch:
 
 jobs:
@@ -8,14 +10,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Create/update text file
-      run: echo "var=z" > test.txt
+      run: echo ${{ github.event.release.tag_name }} > sophia-release.txt
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         # use account 'github-actions[bot]' to set the git config
-
+        git checkout -b example-patches
         git add -A
         git commit -m "commit message"
-        git push
+        git push origin example-patches
+    - uses: devops-infra/action-pull-request@v0.4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        source_branch: example-patches
+        target_branch: master
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      run: echo ${{ steps.previoustag.outputs.tag }}
