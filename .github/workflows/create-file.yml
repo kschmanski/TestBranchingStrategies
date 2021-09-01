@@ -1,8 +1,15 @@
 name: Create Sophia Version File
 on:
-  release:
-    types: [ created ]
-
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: false
+        default: 'Kaz'
+      home:
+        description: 'location'
+        required: false
+        default: 'myHouse'
 
 jobs:
   create-file:
