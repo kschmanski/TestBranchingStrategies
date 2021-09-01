@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Create/update text file
-      run: echo "tag created again" > test-auto.txt
+      run: echo "tag created again again" > test-auto.txt
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
