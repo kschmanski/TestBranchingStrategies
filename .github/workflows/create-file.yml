@@ -31,3 +31,4 @@ jobs:
       with:
         branch: my-branch
         token: ${{secrets.GITHUB_TOKEN}}
+        base: master
