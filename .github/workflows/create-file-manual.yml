@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Create/update text file
-      run: echo "var=y" > test.txt
+      run: echo "var=z" > test.txt
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
