@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: finnp/create-file-action@master
-            env:
-              FILE_NAME: "dir/fileName.txt"
-              FILE_DATA: "file content"
+      - name: Create file
+        run: |
+          printf "Hello\nWorld\n" > hw.txt
