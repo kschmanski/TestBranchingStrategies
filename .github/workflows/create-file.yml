@@ -34,3 +34,4 @@ jobs:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         FROM_BRANCH: "my-branch"
         TO_BRANCH: "master"
+        OWNER: "github-actions"
