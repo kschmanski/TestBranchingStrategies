@@ -30,4 +30,6 @@ jobs:
     - name: 'Get Previous tag'
       id: previoustag
       uses: "WyriHaximus/github-action-get-previous-tag@v1"
+    - name: 'echo'
+      id: echo
       run: echo ${{ steps.previoustag.outputs.tag }}
