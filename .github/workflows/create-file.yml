@@ -10,22 +10,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
+    -
+    - name: checkout
+      run: git checkout -b my-branch
+
     - name: Create/update text file
       run: echo "This is my test" > test-auto-new.txt
+
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         # use account 'github-actions[bot]' to set the git config
 
-        git checkout -b my-branch
+
         git add -A
         git commit -m "commit message"
         git push origin my-branch
+        
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
