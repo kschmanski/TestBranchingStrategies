@@ -1,4 +1,4 @@
-name: Create Sophia Version File Manual
+name: Create Sophia Version File
 on:
   release:
     types: [created]
