@@ -1,0 +1,14 @@
+name: Create Sophia Version File Manual
+on:
+  workflow_dispatch:
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Create/update text file manually
+        run: echo "var=x" > test.txt
+        # If 'test.txt' is existing, overwrite its text with "var=x"
+        # If 'test.txt' doesn't exist, automatically create it and write the text "var=x"
