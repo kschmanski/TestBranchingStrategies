@@ -12,7 +12,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Create/update text file
-      run: echo "This is my test" > test-auto.txt
+      run: echo "This is my test" > sophia-release.txt
+           echo ${{ github.event.release.tag_name }}
     - name: Commit and Push
       run: |
         git config --global user.name "github-actions[bot]"
