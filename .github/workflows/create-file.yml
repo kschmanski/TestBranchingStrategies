@@ -26,5 +26,5 @@ jobs:
         git add -A
         git commit -m "commit message"
         git push origin my-branch
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
